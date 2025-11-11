@@ -1,22 +1,23 @@
 // src/components/Navbar.test.tsx
-import { render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import Navbar from "./Navbar";
 
-// Limpia los mocks antes de cada prueba
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
-// --- Pruebas de renderizado ---
 describe("Navbar - Renderizado", () => {
-  test("renderiza el título principal 'UCC : Prácticas Desarrollo'", () => {
+  test("renderiza el título principal 'Proyecto Final - Calidad de Software'", () => {
     render(<Navbar />);
-    expect(screen.getByText(/UCC : Prácticas Desarrollo/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Proyecto Final - Calidad de Software/i)
+    ).toBeInTheDocument();
   });
 
-  test("renderiza el botón con el texto 'Tema'", () => {
+  test("renderiza el botón con el texto 'Modo oscuro'", () => {
     render(<Navbar />);
-    expect(screen.getByRole("button", { name: /Tema/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Modo oscuro/i })
+    ).toBeInTheDocument();
   });
 });
+
+
 

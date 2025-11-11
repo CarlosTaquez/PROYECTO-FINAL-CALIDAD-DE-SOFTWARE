@@ -1,9 +1,18 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
-// Forzamos estrategia por clase para el modo oscuro
-export default {
-  darkMode: 'class',
-} satisfies Config
+const config: Config = {
+  darkMode: "class", // Activa el modo oscuro por clase (necesario para tu botón de tema)
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // Indica a Tailwind dónde buscar clases CSS
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+export default config;
 
 
 

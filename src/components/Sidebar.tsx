@@ -1,142 +1,105 @@
-import { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  FaHome,
-  FaCalculator,
   FaFlask,
-  FaPaintBrush,
-  FaList,
-  FaBookOpen,
+  FaShapes,
+  FaGlobeAmericas,
+  FaChalkboardTeacher,
   FaUserCircle,
-  FaPlayCircle,
+  FaBookOpen,
 } from "react-icons/fa";
 
-interface SidebarItem {
-  label: string;
-  route: string;
-  icon?: React.ReactNode;
+interface CurrentUser {
+  nombre: string;
+  correo: string;
+  rol: "estudiante" | "docente";
+  grado?: string | null;
 }
 
-const mainItems: SidebarItem[] = [
-  { label: "Inicio", route: "/", icon: <FaHome /> },
-];
+const getCurrentUser = (): CurrentUser | null => {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = localStorage.getItem("mc_currentUser");
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+};
 
-const thematicItems: SidebarItem[] = [
-  {
-    label: "Matemáticas - Tablas Interactivas",
-    route: "/matematicas/tablas",
-    icon: <FaCalculator />,
-  },
-  {
-    label: "Ciencias Naturales - Ciclo del Agua",
-    route: "/ciencias/ciclo-agua",
-    icon: <FaFlask />,
-  },
-  {
-    label: "Arte - Mezcla de Colores",
-    route: "/arte/mezcla-color",
-    icon: <FaPaintBrush />,
-  },
-];
+const Sidebar: React.FC = () => {
+  const user = getCurrentUser();
+  const isDocente = user?.rol === "docente";
 
-const otherItems: SidebarItem[] = [
-  {
-    label: "Evaluaciones",
-    route: "/evaluaciones",
-    icon: <FaList />,
-  },
-  {
-    label: "Recursos Multimedia",
-    route: "/recursos",
-    icon: <FaPlayCircle />,
-  },
-  {
-    label: "Perfil",
-    route: "/perfil",
-    icon: <FaUserCircle />,
-  },
-  {
-    label: "Acerca / Créditos",
-    route: "/acerca",
-    icon: <FaBookOpen />,
-  },
-];
+  const studentNav = [
+    {
+      label: "Ciencias",
+      to: "/app/ciencias/ciclo-agua",
+      icon: <FaFlask />,
+    },
+    {
+      label: "Matemáticas",
+      to: "/app/matematicas/geometria-3d",
+      icon: <FaShapes />,
+    },
+    {
+      label: "Sociales",
+      to: "/app/sociales/globo",
+      icon: <FaGlobeAmericas />,
+    },
+    {
+      label: "Perfil",
+      to: "/app/perfil",
+      icon: <FaUserCircle />,
+    },
+    {
+      label: "Acerca de",
+      to: "/app/acerca",
+      icon: <FaBookOpen />,
+    },
+  ];
 
-export default function Sidebar() {
-  const [openMain, setOpenMain] = useState(true);
-  const [openThematic, setOpenThematic] = useState(true);
-  const [openOther, setOpenOther] = useState(false);
+  const docenteNav = [
+    {
+      label: "Panel Docente",
+      to: "/app/docente",
+      icon: <FaChalkboardTeacher />,
+    },
+    {
+      label: "Perfil",
+      to: "/app/perfil",
+      icon: <FaUserCircle />,
+    },
+    {
+      label: "Acerca de",
+      to: "/app/acerca",
+      icon: <FaBookOpen />,
+    },
+  ];
 
-  const renderNavItem = ({ label, route, icon }: SidebarItem) => (
-    <NavLink
-      key={route}
-      to={route}
-      className={({ isActive }) =>
-        `w-full text-left flex items-center gap-2 justify-between rounded-lg px-3 py-2 text-slate-700 dark:text-slate-300
-         hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors
-         ${
-           isActive
-             ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300"
-             : ""
-         }`
-      }
-    >
-      <div className="flex items-center gap-2">
-        {icon} {label}
-      </div>
-    </NavLink>
-  );
+  const navItems = isDocente ? docenteNav : studentNav;
 
   return (
-    <aside
-      className="hidden md:block w-full md:w-[250px] border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
-      role="navigation"
-      aria-label="Menú principal de la aplicación"
-    >
-      <div className="p-3 space-y-1">
-
-        {/* Sección Principal */}
-        <button
-          onClick={() => setOpenMain(!openMain)}
-          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2
-                     text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
-          aria-expanded={openMain}
-        >
-          Menú Principal
-          <span>{openMain ? "▲" : "▼"}</span>
-        </button>
-        {openMain && (
-          <div className="pl-4 space-y-1">{mainItems.map(renderNavItem)}</div>
-        )}
-
-        {/* Sección Temática */}
-        <button
-          onClick={() => setOpenThematic(!openThematic)}
-          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2
-                     text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
-          aria-expanded={openThematic}
-        >
-          Áreas Temáticas
-          <span>{openThematic ? "▲" : "▼"}</span>
-        </button>
-        {openThematic && (
-          <div className="pl-4 space-y-1">{thematicItems.map(renderNavItem)}</div>
-        )}
-
-        {/* Sección Complementaria */}
-        <button
-          onClick={() => setOpenOther(!openOther)}
-          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2
-                     text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
-          aria-expanded={openOther}
-        >
-          Otras Opciones
-          <span>{openOther ? "▲" : "▼"}</span>
-        </button>
-        {openOther && (
-          <div className="pl-4 space-y-1">{otherItems.map(renderNavItem)}</div>
-        )}
-      </div>
+    <aside className="w-56 bg-slate-900 text-slate-100 min-h-screen p-4">
+      <nav className="space-y-2">
+        {navItems.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-3 py-2 rounded-md text-sm ${
+                isActive
+                  ? "bg-emerald-600 text-white"
+                  : "hover:bg-slate-700 hover:text-white"
+              }`
+            }
+          >
+            {item.icon}
+            <span>{item.label}</span>
+          </NavLink>
+        ))}
+      </nav>
     </aside>
   );
-}
+};
+
+export default Sidebar;

@@ -1,29 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    /* Versión moderna de JS y compatibilidad con React */
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "commonjs",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
 
-    /* Module resolution for Jest */
-    "moduleResolution": "node",
+    /* Resolución de módulos para Vite */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Interoperabilidad */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
 
-    /* Emit/Imports */
-    "allowImportingTsExtensions": false,
-    "noEmit": true,
-
-    /* JSX/React */
+    /* JSX para React 18+ */
     "jsx": "react-jsx",
 
-    /* Linting */
+    /* Estrictos y seguros */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "skipLibCheck": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

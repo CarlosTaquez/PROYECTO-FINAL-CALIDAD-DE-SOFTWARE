@@ -1,51 +1,43 @@
 // src/components/Navbar.tsx
-import React, { useEffect } from "react";
+import React from "react";
+import { FaMoon } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
-  // Inicializa el tema al cargar
-  useEffect(() => {
-    const root = document.documentElement;
-    const saved = localStorage.getItem("theme");
-
-    if (saved) {
-      root.classList.toggle("dark", saved === "dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      root.classList.add("dark");
-    }
-  }, []);
+  const [dark, setDark] = React.useState(false);
 
   const toggleTheme = () => {
-    const root = document.documentElement;
-    const next = root.classList.toggle("dark") ? "dark" : "light";
-    localStorage.setItem("theme", next);
-    // Notifica a la app para que vistas activas reaccionen en vivo
-    document.dispatchEvent(new CustomEvent("theme:changed", { detail: { theme: next } }));
+    setDark((prev) => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      return next;
+    });
   };
 
   return (
-    <header className="h-14 sticky top-0 z-10 bg-white/70 dark:bg-slate-900/60 backdrop-blur border-b border-slate-200 dark:border-slate-800">
-      <div className="container mx-auto px-4 h-full flex items-center justify-between">
-        {/* Lado izquierdo: logo + marca */}
-        <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100">
-          <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500 text-white">
-            U
-          </div>
-          <span>UCC : Prácticas Desarrollo</span>
+    <header className="flex items-center justify-between px-4 py-2 bg-slate-200 dark:bg-slate-700 shadow">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 flex items-center justify-center bg-emerald-600 text-white font-bold rounded">
+          P
         </div>
-
-        {/* Lado derecho: botón de tema */}
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:opacity-90 transition"
-          >
-            Tema
-          </button>
-        </div>
+        <span className="font-semibold text-slate-800 dark:text-slate-100">
+          Proyecto Final - Calidad de Software
+        </span>
       </div>
+
+      <button
+        onClick={toggleTheme}
+        className="flex items-center gap-2 px-3 py-1 border rounded text-sm text-slate-700 dark:text-slate-100 border-slate-400 dark:border-slate-500 hover:bg-slate-300 dark:hover:bg-slate-600 transition"
+      >
+        <FaMoon />
+        {dark ? "Modo claro" : "Modo oscuro"}
+      </button>
     </header>
   );
 };
 
 export default Navbar;
+
