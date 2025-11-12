@@ -1,0 +1,5 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Ciencias: Ciclo del Agua,100,2,0,47,4.63,0.000%,22.37637,16.76,2.95,767.0
+Matemáticas: Geometry3D,100,1,0,5,0.91,0.000%,22.62443,23.99,3.05,1086.0
+Sociales: Globo Terráqueo,100,1,0,5,0.99,0.000%,22.62955,27.80,3.09,1258.0
+TOTAL,300,1,0,47,2.80,0.000%,67.08408,67.94,9.02,1037.0

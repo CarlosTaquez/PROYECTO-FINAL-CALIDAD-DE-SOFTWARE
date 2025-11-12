@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "8ce5e811-f1ad-409f-a820-43fe78292dc8",
+		"name": "Mentes Creativas - API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49658690",
+		"_collection_link": "https://carlostaquez232-6038154.postman.co/workspace/1f629ccf-c190-4ed9-8a07-89ce92bf0f93/collection/49658690-8ce5e811-f1ad-409f-a820-43fe78292dc8?action=share&source=collection_link&creator=49658690"
+	},
+	"item": [
+		{
+			"name": "GET - Evaporación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code es 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Respuesta tiene formato JSON\", function () {\r",
+							"  pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Fase correcta\", function () {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.have.property('id', 'evaporacion'); // Cambia según fase\r",
+							"  pm.expect(data).to.have.property('description');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ciencias/ciclo-agua/evaporacion",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ciencias",
+						"ciclo-agua",
+						"evaporacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Condensación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code es 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Respuesta tiene formato JSON\", function () {\r",
+							"  pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Fase correcta\", function () {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.have.property('id', 'evaporacion'); // Cambia según fase\r",
+							"  pm.expect(data).to.have.property('description');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ciencias/ciclo-agua/condensacion",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ciencias",
+						"ciclo-agua",
+						"condensacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Precipitación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code es 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Respuesta tiene formato JSON\", function () {\r",
+							"  pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Fase correcta\", function () {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.have.property('id', 'evaporacion'); // Cambia según fase\r",
+							"  pm.expect(data).to.have.property('description');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ciencias/ciclo-agua/precipitacion",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ciencias",
+						"ciclo-agua",
+						"precipitacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Escorrentía",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code es 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Respuesta tiene formato JSON\", function () {\r",
+							"  pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Fase correcta\", function () {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.have.property('id', 'evaporacion'); // Cambia según fase\r",
+							"  pm.expect(data).to.have.property('description');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ciencias/ciclo-agua/escorrentia",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ciencias",
+						"ciclo-agua",
+						"escorrentia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Geometry3D - Lista de Figuras",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Respuesta tiene formato JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiene título y descripción\", function () {\r",
+							"    const data = pm.response.json();\r",
+							"    pm.expect(data).to.have.property('title');\r",
+							"    pm.expect(data).to.have.property('description');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Incluye el array de figuras\", function () {\r",
+							"    const data = pm.response.json();\r",
+							"    pm.expect(data).to.have.property('figures');\r",
+							"    pm.expect(data.figures).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Incluye cubo, esfera, pirámide y cilindro\", function () {\r",
+							"    const data = pm.response.json();\r",
+							"    const ids = data.figures.map(f => f.id);\r",
+							"    pm.expect(ids).to.include('cubo');\r",
+							"    pm.expect(ids).to.include('esfera');\r",
+							"    pm.expect(ids).to.include('piramide');\r",
+							"    pm.expect(ids).to.include('cilindro');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/matematicas/geometry3d",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"matematicas",
+						"geometry3d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Geometry3D - Cubo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es la figura Cubo\", function () {\r",
+							"    const d = pm.response.json();\r",
+							"    pm.expect(d).to.have.property('id', 'cubo');\r",
+							"    pm.expect(d).to.have.property('name', 'Cubo');\r",
+							"    pm.expect(d).to.have.property('faces', 6);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/matematicas/geometry3d/cubo",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"matematicas",
+						"geometry3d",
+						"cubo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Geometry3D - Esfera",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es la figura Esfera\", function () {\r",
+							"    const d = pm.response.json();\r",
+							"    pm.expect(d).to.have.property('id', 'esfera');\r",
+							"    pm.expect(d).to.have.property('name', 'Esfera');\r",
+							"    pm.expect(d.edges).to.equal(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/matematicas/geometry3d/esfera",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"matematicas",
+						"geometry3d",
+						"esfera"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Geometry3D - Pirámide",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es la figura Pirámide\", function () {\r",
+							"    const d = pm.response.json();\r",
+							"    pm.expect(d).to.have.property('id', 'piramide');\r",
+							"    pm.expect(d).to.have.property('name', 'Pirámide');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/matematicas/geometry3d/piramide",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"matematicas",
+						"geometry3d",
+						"piramide"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Geometry3D - Cilindro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/matematicas/geometry3d/cilindro",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"matematicas",
+						"geometry3d",
+						"cilindro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Globo Terráqueo (General)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es JSON\", () => {\r",
+							"  pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiene título, descripción y continentes\", () => {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.have.property('title');\r",
+							"  pm.expect(data).to.have.property('description');\r",
+							"  pm.expect(data).to.have.property('continents');\r",
+							"  pm.expect(data.continents).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Incluye Colombia como país foco\", () => {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.have.property('focusCountry');\r",
+							"  pm.expect(data.focusCountry).to.have.property('id', 'colombia');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/sociales/globo-terraqueo",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sociales",
+						"globo-terraqueo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Lista de Continentes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es un array con 6 continentes\", () => {\r",
+							"  const data = pm.response.json();\r",
+							"  pm.expect(data).to.be.an('array');\r",
+							"  pm.expect(data.length).to.equal(6);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/sociales/globo-terraqueo/continentes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sociales",
+						"globo-terraqueo",
+						"continentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - América",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es América y menciona Colombia\", () => {\r",
+							"  const d = pm.response.json();\r",
+							"  pm.expect(d).to.have.property('id', 'america');\r",
+							"  pm.expect(d.description).to.include('Colombia');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/sociales/globo-terraqueo/america",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sociales",
+						"globo-terraqueo",
+						"america"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Colombia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Es Colombia en América\", () => {\r",
+							"  const d = pm.response.json();\r",
+							"  pm.expect(d).to.have.property('id', 'colombia');\r",
+							"  pm.expect(d).to.have.property('continent', 'América');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/sociales/globo-terraqueo/colombia",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sociales",
+						"globo-terraqueo",
+						"colombia"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
